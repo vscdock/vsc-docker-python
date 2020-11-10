@@ -1,0 +1,19 @@
+{
+    "name": "Python Container",
+	"build": {
+        "dockerfile": "../Dockerfile",
+        "context": ".."
+    },
+    "workspaceMount": "src=${localWorkspaceFolder},dst=/root/${localWorkspaceFolderBasename},type=bind,consistency=cached",
+    "workspaceFolder": "/root/${localWorkspaceFolderBasename}",
+    "settings": { 
+        "terminal.integrated.shell.linux": "/bin/bash"
+    },
+    "extensions": [
+        "ms-python.python"
+    ],
+    "postCreateCommand": "/root/${localWorkspaceFolderBasename}/.devcontainer/postCreateCommand",
+    "runArgs": [
+        "-v", "${localEnv:HOME}/.ssh:/root/.ssh"
+    ]
+}
